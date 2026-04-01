@@ -2,100 +2,403 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+/* ── Telegram Color Palette ── */
+:root {
+  /* Main backgrounds */
+  --tg-bg: #f1f1f1;
+  --tg-bg-chat: #e5ddd5;
+  --tg-sidebar: #ffffff;
+  --tg-header: #ffffff;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+  /* Text */
+  --tg-text: #000000;
+  --tg-secondary: #999999;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+  /* Borders */
+  --tg-border: #e7e7e7;
+  --tg-divider: #ebebeb;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+  /* Accent (Telegram blue) */
+  --tg-accent: #2196f3;
+  --tg-accent-light: #e3f2fd;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+  /* Bubbles */
+  --tg-bubble-own: #dcf8c6;
+  --tg-bubble-own-text: #000000;
+  --tg-bubble-other: #ffffff;
+  --tg-bubble-other-text: #000000;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+  /* Interactive */
+  --tg-hover: #f5f5f5;
+  --tg-active: #e8f4fd;
+  --tg-active-text: #000000;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+  /* Online indicator */
+  --tg-online: #4caf50;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+  /* Search bar */
+  --tg-search-bg: #f1f1f1;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+  /* Filter chip */
+  --tg-chip-bg: #e8f4fd;
+  --tg-chip-text: #2196f3;
+  --tg-chip-inactive-bg: #f1f1f1;
+  --tg-chip-inactive-text: #888;
 
-    --radius: 0.5rem;
+  /* Date separator */
+  --tg-date-bg: rgba(0, 0, 0, 0.08);
 
-    --sidebar-background: 0 0% 98%;
+  /* Emoji picker */
+  --tg-emoji-bg: #ffffff;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+  /* Input */
+  --tg-input-bg: #f1f1f1;
 
-    --sidebar-primary: 240 5.9% 10%;
+  /* Send button */
+  --tg-send-bg: #2196f3;
+  --tg-send-text: #ffffff;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* Shadcn compat */
+  --background: 0 0% 94%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+  --primary: 210 100% 56%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 210 100% 56%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 210 100% 56%;
+  --radius: 0.5rem;
 }
 
+/* ── Dark Mode ── */
+.dark {
+  --tg-bg: #1c1c1e;
+  --tg-bg-chat: #0d1117;
+  --tg-sidebar: #212121;
+  --tg-header: #212121;
+  --tg-text: #ffffff;
+  --tg-secondary: #aaaaaa;
+  --tg-border: #2e2e2e;
+  --tg-divider: #2e2e2e;
+  --tg-accent: #4db6f7;
+  --tg-accent-light: rgba(77, 182, 247, 0.1);
+  --tg-bubble-own: #2b5278;
+  --tg-bubble-own-text: #ffffff;
+  --tg-bubble-other: #212121;
+  --tg-bubble-other-text: #ffffff;
+  --tg-hover: #2a2a2a;
+  --tg-active: #2b5278;
+  --tg-active-text: #ffffff;
+  --tg-online: #4caf50;
+  --tg-search-bg: #2a2a2a;
+  --tg-chip-bg: #2b5278;
+  --tg-chip-text: #4db6f7;
+  --tg-chip-inactive-bg: #2a2a2a;
+  --tg-chip-inactive-text: #888;
+  --tg-date-bg: rgba(255, 255, 255, 0.1);
+  --tg-emoji-bg: #212121;
+  --tg-input-bg: #2a2a2a;
+  --tg-send-bg: #4db6f7;
+  --tg-send-text: #000000;
+}
+
+/* ── Reset & Base ── */
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, sans-serif;
+    background: var(--tg-bg);
+    color: var(--tg-text);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ── App Layout ── */
+.tg-app {
+  background: var(--tg-bg);
+}
+
+/* ── Sidebar ── */
+.tg-sidebar {
+  background: var(--tg-sidebar);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tg-sidebar-header {
+  background: var(--tg-header);
+  border-bottom: 1px solid var(--tg-border);
+  min-height: 56px;
+}
+
+.tg-chat-header {
+  min-height: 56px;
+}
+
+/* ── Icon Button ── */
+.tg-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--tg-secondary);
+  transition:
+    background 0.15s,
+    color 0.15s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tg-icon-btn:hover {
+  background: var(--tg-hover);
+  color: var(--tg-accent);
+}
+
+/* ── Search Bar ── */
+.tg-search-bar {
+  background: var(--tg-search-bg);
+}
+
+/* ── Filter Chips ── */
+.tg-filter-chip {
+  transition: all 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tg-filter-chip-active {
+  background: var(--tg-chip-bg);
+  color: var(--tg-chip-text);
+}
+
+.tg-filter-chip-inactive {
+  background: var(--tg-chip-inactive-bg);
+  color: var(--tg-chip-inactive-text);
+}
+
+.tg-filter-chip-inactive:hover {
+  background: var(--tg-hover);
+}
+
+/* ── Chat Item ── */
+.tg-chat-item {
+  border-bottom: 1px solid transparent;
+  transition: background 0.1s;
+}
+
+.tg-chat-item-active {
+  background: var(--tg-active) !important;
+  color: var(--tg-active-text);
+}
+
+.tg-chat-item-active .tg-chat-item-secondary {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ── Chat Window ── */
+.tg-chat-window {
+  background: var(--tg-bg-chat);
+}
+
+.tg-chat-empty {
+  background: var(--tg-bg-chat);
+}
+
+.tg-empty-icon {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ── Message Bubbles ── */
+.tg-bubble {
+  position: relative;
+  word-break: break-word;
+}
+
+.tg-bubble-own {
+  background: var(--tg-bubble-own);
+  color: var(--tg-bubble-own-text);
+}
+
+.tg-bubble-other {
+  background: var(--tg-bubble-other);
+  color: var(--tg-bubble-other-text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tg-bubble-own {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Date Separator ── */
+.tg-date-sep {
+  background: var(--tg-date-bg);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Typing Indicator ── */
+.tg-typing-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--tg-secondary);
+  border-radius: 50%;
+  animation: tg-typing-bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes tg-typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ── Emoji Picker ── */
+.tg-emoji-picker {
+  background: var(--tg-emoji-bg);
+}
+
+/* ── Input ── */
+.tg-input-wrap {
+  background: var(--tg-input-bg);
+}
+
+.tg-textarea {
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+/* ── Send Button ── */
+.tg-send-btn {
+  background: var(--tg-send-bg);
+  color: var(--tg-send-text);
+  transition:
+    transform 0.1s,
+    opacity 0.1s;
+}
+
+.tg-send-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.tg-send-btn:active {
+  transform: scale(0.95);
+}
+
+/* ── Scrollbar ── */
+.tg-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.tg-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tg-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tg-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.tg-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Color Utility Classes ── */
+.text-tg-text {
+  color: var(--tg-text);
+}
+.text-tg-secondary {
+  color: var(--tg-secondary);
+}
+.text-tg-accent {
+  color: var(--tg-accent);
+}
+.bg-tg-bg {
+  background: var(--tg-bg);
+}
+.bg-tg-bg-chat {
+  background: var(--tg-bg-chat);
+}
+.bg-tg-sidebar {
+  background: var(--tg-sidebar);
+}
+.bg-tg-header {
+  background: var(--tg-header);
+}
+.bg-tg-hover {
+  background: var(--tg-hover);
+}
+.bg-tg-online {
+  background: var(--tg-online);
+}
+.border-tg-border {
+  border-color: var(--tg-border);
+}
+.border-tg-divider {
+  border-color: var(--tg-divider);
+}
+
+/* ── Message appear animation ── */
+.tg-bubble {
+  animation: tg-msg-appear 0.15s ease-out;
+}
+
+@keyframes tg-msg-appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
